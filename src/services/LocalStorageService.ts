@@ -1,4 +1,8 @@
+// keys
 const DICT = "dict";
+export const EMAIL = "email";
+export const FAVORITE_SONG_IDS_BY_USER = "favoriteSongIds";
+
 type Value = string | number | boolean | Record<string, unknown>;
 export function getLocalStorageItem(key: string): Value | null {
     // atob

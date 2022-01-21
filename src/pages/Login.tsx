@@ -1,10 +1,12 @@
 import { Box, Button, Grid, TextField } from '@mui/material';
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signIn } from '../services/AuthService';
+import { AppContext } from '../context/AppContext';
 
 export const Login = () => {
     const navigate = useNavigate();
+
+    const { setEmail, setSnackbarMsg } = useContext(AppContext)
 
     const [user, setUser] = useState<string>("");
     const [errorU, setErrorU] = useState<boolean>(false);
@@ -17,15 +19,19 @@ export const Login = () => {
 
     function handleSignInClick() {
         if (user === "" || password === "") {
+            setSnackbarMsg({
+                message: "remember to enter user and password",
+                variant: "error",
+                open: true,
+            });
             return;
         }
+        setEmail(user);
         navigate("/home");
-        signIn(user, password);
     }
 
     return (
         <Grid container spacing={3} style={{ padding: 0, margin: 0 }}>
-
             <Grid item xs={12} sm={5} style={{ height: "100%", padding: 0, margin: 0 }}>
                 <Box sx={styles.formContainer}>
                     <Box sx={styles.form}>
