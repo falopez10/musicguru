@@ -6,7 +6,7 @@ Welcome to MusicGuru. a PoC for a web app where you can discover
 Fabio Andrés López Corredor.
 ## Let me see it!
 
-Just [go to my website](https://musicguru-98608.web.app/)
+Just go to [MusicGuru](https://fb-lpz.web.app/)
 
 ## Technologies used
 
@@ -16,5 +16,6 @@ Just [go to my website](https://musicguru-98608.web.app/)
 * **CSS**: Although I see advantage in tools like [SASS](https://sass-lang.com/), I believe the language used for styling will keep being the standard in web development, and CSS itself is really useful for small projects.
 * **[Firebase hosting](https://firebase.google.com/)**: Currently I serve the webpage on firebase hosting. 
 * **[Github actions](https://github.com/features/actions)**: The basic build and deployment is executed from github servers via github actions.
+* **[Github API](https://docs.github.com/en/rest)**: To emulate a working music API I used gists, and then fetched them with github's public API, which allows under 60 requests per day.
 
 *Made by Fabio. From Colombia, for the 🌍*
