@@ -26,6 +26,11 @@ export const Login = () => {
             });
             return;
         }
+        setSnackbarMsg({
+            message: `Welcome back, ${user}!`,
+            variant: "success",
+            open: true,
+        });
         setEmail(user);
         navigate("/home");
     }
@@ -85,10 +90,10 @@ export const Login = () => {
             </Grid>
             <Grid item xs={12} sm={7} style={{ padding: 0, margin: 0 }}>
                 <Box sx={styles.infoContainer}>
-                    <h1>Lorem</h1>
-                    <h2>Lorem ipsum sic mundus creatus est</h2>
-                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam exercitationem quod hic? In magni possimus nam velit illo. Unde nostrum consequuntur consequatur, laboriosam incidunt ut voluptatibus fuga aliquid tenetur! Officiis?</h3>
-
+                    <h1>Welcome to Music Guru</h1>
+                    <h2>The absolute first platform to listen and learn from your favorite music</h2>
+                    <h3>Navigate throu different artists, compositions and genres! You can favorite the ones you like the most and learn more about the details from each composition and author. You can even listen to your favorite songs straight from MusicGuru!</h3>
+                    <h6 style={{ textAlign: "right" }}><i>By Fabio, 2022</i></h6>
                 </Box>
             </Grid>
         </Grid>

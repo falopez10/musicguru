@@ -28,6 +28,7 @@ export const SongItem: FC<Props> = ({ id, composition, composer }) => {
 
     return (
         <ListItem disablePadding
+            className="slideUpItem"
             secondaryAction={
                 <Fragment>
                     <IconButton color={isFavorite ? "primary" : "default"}>

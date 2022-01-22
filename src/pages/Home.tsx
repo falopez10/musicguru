@@ -44,30 +44,34 @@ export const Home = () => {
 
     return (
         <Box sx={{ height: "100%", display: "flex", justifyContent: "space-between", flexDirection: "column" }}>
-            <h2>Navigate to any song and select your favorite ones!</h2>
-            <Box sx={{ display: "flex", justifyContent: "flex-start", gap: 1 }}>
-                <Autocomplete
-                    disablePortal
-                    freeSolo
-                    options={songNames}
-                    sx={{ width: 300 }}
-                    renderInput={(params) => <TextField {...params} label="Song Name" />}
-                    onInputChange={(event: any, newValue: string | null) => setSongName(newValue)}
-                    onKeyPress={(ev) => ev.key === 'Enter' && retrieveFilteredSongs()}
-                />
-                <Button color="primary" variant="contained" onClick={retrieveFilteredSongs} >
-                    Search
-                </Button>
-            </Box>
+            <div>
+                <h2>Navigate to any song and select your favorite ones!</h2>
+                <Box sx={{ display: "flex", justifyContent: "flex-start", gap: 1 }}>
+                    <Autocomplete
+                        disablePortal
+                        freeSolo
+                        options={songNames}
+                        sx={{ width: 300 }}
+                        renderInput={(params) => <TextField {...params} label="Song Name" />}
+                        onInputChange={(event: any, newValue: string | null) => setSongName(newValue)}
+                        onKeyPress={(ev) => ev.key === 'Enter' && retrieveFilteredSongs()}
+                    />
+                    <Button color="primary" variant="contained" onClick={retrieveFilteredSongs} >
+                        Search
+                    </Button>
+                </Box>
+            </div>
             <List sx={{ overflow: "auto" }}>
                 {songs.map(({ id, composition, composer }) =>
                     <SongItem key={id} id={id} composition={composition} composer={composer} />
                 )}
             </List>
-            {
-                pages > 0 &&
-                <Pagination sx={{ margin: 1 }} count={pages} page={page} onChange={changePage} color="secondary" />
-            }
+            <Box className="slideUpItem">
+                {
+                    pages > 0 &&
+                    <Pagination sx={{ margin: 1 }} count={pages} page={page} onChange={changePage} color="secondary" />
+                }
+            </Box>
         </Box >
     )
 }

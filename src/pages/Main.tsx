@@ -52,7 +52,7 @@ const styles = {
         flexDirection: "column",
     },
     outletContainer: {
-        maxHeight: "80%",
+        height: "80%",
         marginX: 1,
         overflow: "auto",
     },

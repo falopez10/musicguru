@@ -11,7 +11,7 @@ interface Props {
 
 export const FavoriteSongItem: FC<Props> = ({ id, composition, composer }) => {
     return (
-        <Grid item>
+        <Grid item className="slideLeftItem">
             <Card sx={{ display: 'flex' }} className="card">
                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                     <CardContent sx={{ flex: '1 0 auto' }}>

@@ -44,7 +44,13 @@ export const Detail = () => {
     }, [id])
 
     return (
-        <Box sx={{ height: "100%", margin: 2, display: "flex", alignItems: song ? "space-between" : "center", flexDirection: "column" }}>
+        <Box
+            className="slideLeftItem"
+            sx={{
+                height: "100%", margin: 2, display: "flex",
+                alignItems: song ? "space-between" : "center", flexDirection: "column"
+            }}
+        >
             {
                 song ?
                     <Fragment>
