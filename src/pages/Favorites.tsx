@@ -1,5 +1,5 @@
 import { Box, Grid, Divider, Typography } from '@mui/material'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { FavoriteSongItem } from '../components/FavoriteSongItem';
 import { AppContext } from '../context/AppContext';
 import { Song } from '../models';
@@ -9,14 +9,14 @@ export const Favorites = () => {
     const { favoriteSongIdsByUser, email } = useContext(AppContext);
     const [favoriteSongs, setFavoriteSongs] = useState<Song[]>([]);
 
-    async function retrieveSongs() {
+    const retrieveSongs = useCallback(async () => {
         if (!email) return;
         const _songs = await fetchFavoriteSongs(favoriteSongIdsByUser[email]);
         setFavoriteSongs(_songs);
-    }
+    }, [email, favoriteSongIdsByUser]);
     useEffect(() => {
         retrieveSongs();
-    }, [email, favoriteSongIdsByUser]);
+    }, [email, favoriteSongIdsByUser, retrieveSongs]);
     return (
         <Box sx={{ height: "100%", margin: 2 }}>
             <Typography variant="h4" sx={{ marginTop: 0 }}>Your favorite songs</Typography>

@@ -1,6 +1,6 @@
 import { Favorite as FavoriteIcon } from '@mui/icons-material';
 import { Box, CircularProgress, Divider, Grid, IconButton, Paper, Typography } from '@mui/material';
-import React, { Fragment, useContext, useEffect, useState } from 'react';
+import React, { Fragment, useCallback, useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import { useFavorite } from '../hooks/useFavorite';
@@ -15,33 +15,35 @@ export const Detail = () => {
     const [song, setSong] = useState<Song | null>(null)
     const [isFavorite, toggleFavoriteSong] = useFavorite(id ? parseInt(id) : -1, email, favoriteSongIdsByUser, setFavoriteSongIdsByUser);
 
-    async function retrieveSong() {
-        try {
-            if (!id) {
+    const retrieveSong = useCallback(
+        async () => {
+            try {
+                if (!id) {
+                    setSnackbarMsg({
+                        message: "Song id required",
+                        variant: "error",
+                        open: true,
+                    });
+                    navigate("/home");
+                }
+                else {
+                    const _song = await fetchSong(parseInt(id));
+                    setSong(_song);
+                }
+
+            } catch (error) {
                 setSnackbarMsg({
-                    message: "Song id required",
+                    message: "Song id not valid",
                     variant: "error",
                     open: true,
                 });
-                navigate("/home");
             }
-            else {
-                const _song = await fetchSong(parseInt(id));
-                setSong(_song);
-            }
-
-        } catch (error) {
-            setSnackbarMsg({
-                message: "Song id not valid",
-                variant: "error",
-                open: true,
-            });
-        }
-    }
+        },
+        [id, navigate, setSnackbarMsg]);
 
     useEffect(() => {
         retrieveSong();
-    }, [id])
+    }, [id, retrieveSong])
 
     return (
         <Box
