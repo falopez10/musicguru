@@ -9,7 +9,7 @@ export function useFavorite(
         setFavoriteSongIdsByUser(prev => {
             const _favoriteSongIdsByUser: Record<string, Record<number, number>> = { ...(prev || {}) };
             const _favoriteSongIds: Record<number, number> = { ...(_favoriteSongIdsByUser[email] || {}) };
-            if (_favoriteSongIds[id]) delete _favoriteSongIdsByUser[id];
+            if (_favoriteSongIds[id]) delete _favoriteSongIds[id];
             else _favoriteSongIds[id] = 1;
             return {
                 ..._favoriteSongIdsByUser,
