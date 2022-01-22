@@ -91,7 +91,7 @@ export const Login = () => {
             <Grid item xs={12} sm={7} style={{ padding: 0, margin: 0 }}>
                 <Box sx={styles.infoContainer}>
                     <h1>Welcome to Music Guru</h1>
-                    <h2>The absolute first platform to listen and learn from your favorite music</h2>
+                    <h2>The absolutely first platform to listen and learn from your favorite music</h2>
                     <h3>Navigate throu different artists, compositions and genres! You can favorite the ones you like the most and learn more about the details from each composition and author. You can even listen to your favorite songs straight from MusicGuru!</h3>
                     <h6 style={{ textAlign: "right" }}><i>By Fabio, 2022</i></h6>
                 </Box>
