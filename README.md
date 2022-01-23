@@ -6,7 +6,10 @@ Welcome to MusicGuru. a PoC for a web app where you can discover
 Fabio Andrés López Corredor.
 ## Let me see it!
 
-Just go to [MusicGuru](https://fb-lpz.web.app/)
+Just go to [MusicGuru](https://fb-lpz.web.app/).
+
+If you want you can also check the gif [demo online](https://firebasestorage.googleapis.com/v0/b/musicguru-98608.appspot.com/o/musicguru-demo.gif?alt=media)
+
 
 ## Technologies used
 
